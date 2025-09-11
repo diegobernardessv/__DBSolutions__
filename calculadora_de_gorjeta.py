@@ -7,6 +7,3 @@ def calculadora_de_gorjeta():
     valor_total = gorjeta / 100 * conta + conta
     valor_por_pessoa = valor_total / total_pessoas
     print(f"Cada pessoa deve pagar: R${valor_por_pessoa:.2f}")
-    
-
-calculadora_de_gorjeta()
