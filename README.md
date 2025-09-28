@@ -63,4 +63,7 @@
   <a href="https://www.instagram.com/diegobernardessv/" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=E4405F&color=E4405F&borderRadius=8" alt="Instagram Badge" />
   </a>
+  <a href="https://www.youtube.com/channel/UChj2WsyXpsSFdHP3rKpuIbw" target="_blank">
+    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=FF0000&color=FF0000&borderRadius=8" alt="YouTube Badge" />
+  </a>
 </p>
