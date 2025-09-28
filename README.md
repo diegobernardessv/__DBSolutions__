@@ -59,5 +59,8 @@
   </a>
   <a href="https://www.linkedin.com/in/diegobernardessv/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5&color=0077B5&borderRadius=8" alt="LinkedIn Badge" />
-  </a>  
+  </a>
+  <a href="https://www.instagram.com/diegobernardessv/" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=E4405F&color=E4405F&borderRadius=8" alt="Instagram Badge" />
+  </a>
 </p>
