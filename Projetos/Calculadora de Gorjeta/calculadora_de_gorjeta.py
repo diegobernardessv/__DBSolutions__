@@ -23,7 +23,7 @@ def calculadora_de_gorjeta():
     
     print(" ")
     
-    print("Bem vindo ao calculador de gorjeta!")
+    print("Seja bem vindo a calculadora de gorjeta!")
     print(" ")
     
     conta = float(input("Qual foi o valor total da conta? R$ "))
