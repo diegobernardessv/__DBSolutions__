@@ -1,9 +1,0 @@
-def calculadora_de_gorjeta():
-    print("Bem vindo ao calculador de gorjeta!")
-    conta = float(input("Qual foi o valor da conta? R$"))
-    total_pessoas = int(input("Quantas pessoas vão dividir a conta? "))
-    gorjeta = int(input("Qual a porcentagem da gorjeta? 10, 12 ou 15(%)? "))
-    
-    valor_total = gorjeta / 100 * conta + conta
-    valor_por_pessoa = valor_total / total_pessoas
-    print(f"Cada pessoa deve pagar: R${valor_por_pessoa:.2f}")
