@@ -17,9 +17,9 @@ print(" ")
 print("Bem vindo ao Gerador PyPasswords!")
 print(" ")
 
-nr_letters = int(input("Quantas letras gostaria de ter na sua senha?\n"))
-nr_symbols = int(input("Quantos símbolos gostaria de ter na sua senha?\n"))
-nr_numbers = int(input("Quantos números gostaria de ter na sua senha?\n"))
+nr_letters = int(input("Quantas letras gostaria de ter na sua senha? "))
+nr_symbols = int(input("Quantos símbolos gostaria de ter na sua senha? "))
+nr_numbers = int(input("Quantos números gostaria de ter na sua senha? "))
 
 # Criando uma nova lista com a quantidade de caracteres escolhida
 password_list = []
