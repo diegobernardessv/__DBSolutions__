@@ -400,6 +400,39 @@ def split_provedores():
             provedores[provedor] = 1
     
         print(provedor)
+    
+    
+def soma_dos_elementos():
+    lista = []
+    soma = 0
+    
+    for i in range(0, 201):
+        lista.append(i)
+        soma += i
+    
+    print(f"=== Lista completa === \n{lista}")
+    print("=========================")
+    print(f"Soma dos elementos: {soma}")
+
+def convert_miles_to_km():
+    miles = float(input("Digite a distância em milhas: "))
+    kilometers = 1.609344
+    converted = miles * kilometers
+
+    print(f"A distância em quilômetros é: {round(converted, 2)} km.")
+
+class Carro:
+    def __init__(self, marca, modelo, ano):
+        self.marca = marca
+        self.modelo = modelo
+        self.ano = ano
+        print(f"Um carro da marca {self.marca}, modelo {self.modelo} e ano {self.ano} foi criado.")
+        
+meu_carro = Carro("Toyota", "Corolla", 2022)
+seu_carro = Carro("Honda", "Civic", 2021)
+
+print(f"Meu carro é um {meu_carro.marca} {meu_carro.modelo} do ano {meu_carro.ano}.")
+print(f"Seu carro é um {seu_carro.marca} {seu_carro.modelo} do ano {seu_carro.ano}")
         
 
 
