@@ -1,4 +1,5 @@
 # Listas (A verdadeira força das listas aparece quando você as percorre para ler ou modificar seus dados.)
+
 # Criando uma lista de frutas
 frutas = ["maçã", "banana", "melancia", "pera", "kiwi", "morango", "abacate", "manga", "laranja", "abacaxi", "uva", "melão"]
 
@@ -56,5 +57,48 @@ while i < len(frutas): # len() retorna o tamanho da lista
     print(f"Ainda não é a laranja. Esta é a fruta atual: {fruta_atual}.")
     i += 1 # Importante: incrementar o contador para não criar um loop infinito
 
+# --- Métodos essenciais para modificar listas ---
+# append(item): Adiciona um item ao final da lista.
+# insert(indice, item): Adiciona um item em uma posição específica.
+# remove(item): Remove a primeira ocorrência de um item.
+# pop(indice): Remove e retorna o item de um índice específico (se o índice não for informado, remove o último).
+# sort(): Ordena a lista (modifica a lista original).
 
+# Exemplo prático de manipulação.
+
+tarefas_do_dia = ["Escovar os dentes ao acordar",
+                  "Tomar café",
+                  "Lavar o quintal",
+                  "Fazer almoço",
+                  "Dar comida ao cachorro"]
+
+print(f"Tarefas iniciais: {tarefas_do_dia}")
+
+# Adicionando novas tarefas
+tarefas_do_dia.append("Estudar")
+tarefas_do_dia.append("Lavar o carro")
+tarefas_do_dia.append("Fazer o jantar")
+tarefas_do_dia.append("Dormir")
+tarefas_do_dia.insert(3, "Estudar Python")
+print(f"Tarefas atualizadas: {tarefas_do_dia}")
+
+# Removendo tarefas cumpridas
+tarefas_do_dia.remove("Lavar o quintal")
+tarefas_do_dia.remove("Fazer almoço")
+tarefas_do_dia.remove("Dar comida ao cachorro")
+print(f"Tarefas atualizadas: {tarefas_do_dia}")
+
+# Removendo a última tarefa adicionada
+tarefas_do_dia.pop()
+print(f"Tarefas atualizadas: {tarefas_do_dia}")
+
+# Ordenando a lista de tarefas em ordem crescente
+tarefas_do_dia.sort()
+print(f"Tarefas atualizadas: {tarefas_do_dia}")
+
+# Ordenando a lista de tarefas em ordem decrescente
+tarefas_do_dia.sort(reverse=True)
+print(f"Tarefas atualizadas: {tarefas_do_dia}")
+
+# --- Dicionários ---
 
