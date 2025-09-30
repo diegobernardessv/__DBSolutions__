@@ -101,4 +101,34 @@ tarefas_do_dia.sort(reverse=True)
 print(f"Tarefas atualizadas: {tarefas_do_dia}")
 
 # --- Dicionários ---
+# (Dicionários são coleções não ordenadas que armazenam dados no formato chave-valor.
+# São extremamente eficientes para buscar informações.)
+
+# Criando um dicionário para descrever um usuário.
+usuario = {
+    "nome": "Tobias Rieper",
+    "idade": "28",
+    "email": "tobiasrieper@gmail.com",
+    "endereço": "Rua 47, Bielorússia",
+    "telefone": "+55 27 983664533",
+    "profissão": "Engenheiro de Software"
+}
+
+# Acessando valores através das chaves
+print(f"Nome do usuário: {usuario['nome']}")
+print(f"Idade do usuário: {usuario['idade']}")
+print(f"Email do usuário: {usuario['email']}")
+
+# Adicionando um novo par chave-valor
+usuario["nacionalidade"] = "Italiano"
+print(f"Nacionalidade do usuário adicionada: {usuario['nacionalidade']}")
+
+# Modificando um valor existente
+usuario["idade"] = 34
+print(f"Idade do usuário modificada: {usuario['idade']}")
+print(f"Dicionário atualizado: {usuario}")
+
+# === Manipulando Dicionários com laços for
+print("\n--- Chaves do Dicionário ---")
+
 
