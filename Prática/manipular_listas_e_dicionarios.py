@@ -111,7 +111,7 @@ usuario = {
     "email": "tobiasrieper@gmail.com",
     "endereço": "Rua 47, Bielorússia",
     "telefone": "+55 27 983664533",
-    "profissão": "Engenheiro de Software"
+    "profissao": "Engenheiro de Software"
 }
 
 # Acessando valores através das chaves
@@ -129,6 +129,35 @@ print(f"Idade do usuário modificada: {usuario['idade']}")
 print(f"Dicionário atualizado: {usuario}")
 
 # === Manipulando Dicionários com laços for
+# Exemplo 1: Iterando sobre as chaves (comportamento padrão)
 print("\n--- Chaves do Dicionário ---")
+for key in usuario:
+    print(f"Chave: {key}: Valor: {usuario[key]}")
 
+# Exemplo 2: Iterando sobre os valores com o método .values()
+print("\n--- Valores do Dicionário ---")
+for value in usuario.values():
+    print(value)
+
+# Exemplo 3: Iterando sobre os pares chave-valor com o método .items() (o mais útil!)
+print("\n--- Itens (Chave-Valor) do Dicionário ---")
+for key, value in usuario.items():
+    print(f"O campo {key} tem o valor: {value}.")
+
+# === Métodos essenciais para Dicionários
+# get(chave, valor_padrao): Acessa uma chave de forma segura. Se a chave não existir, retorna None ou o valor padrão que você especificar, evitando erros.
+# keys(): Retorna uma visão de todas as chaves.
+# values(): Retorna uma visão de todos os valores.
+# items(): Retorna uma visão de todos os pares (chave, valor).
+# pop(chave): Remove uma chave e retorna seu valor.
+
+# Exemplo de uso do .get()
+# Tentar acessar uma chave que não existe gera um erro: print(usuario['país'])
+# Forma segura:
+pais = usuario.get("país", "País não informado")
+print(f"\nPaís do usuário: {pais}")
+
+# Removendo um item
+profissao_removida = usuario.pop("profissao")
+print(f"A profissão '{profissao_removida}' foi removida. Dicionário final: {usuario}")
 
