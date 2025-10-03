@@ -1,17 +1,23 @@
 alert("Bem vindo ao jogo do número secreto.")
 
-let numeroSecreto = 10;
-console.log(numeroSecreto);
+let numeroSecreto = 6;
+let palpite; 
+let tentativas = 1;
 
-let chute = prompt("Digite um número:");
-console.log("Valor do chute:", chute);
-
-// se chute for igual ao número secreto
-if (chute == numeroSecreto) {
-    console.log("Resultado da comparação:", chute == numeroSecreto);
-    alert(`Isso aí! Você descobriu o número secreto! ${numeroSecreto}`);
-} else {
-    alert("Você errou! :(");
-    console.log("Valor do número secreto:", numeroSecreto);
-    alert(`O número secreto era ${numeroSecreto}`)
-}
+// enquanto palpite não for igual ao n° secreto
+while(palpite != numeroSecreto) {
+    palpite = prompt("Escolha um número de 1 a 10");
+// se palpite for igual ao número secreto
+    if (palpite == numeroSecreto) {
+        alert(`Isso aí! Você descobriu o número secreto! O número secreto é o ${numeroSecreto}!`);
+        alert(`Você acertou em ${tentativas} tentativas.`)
+    } else {
+        if (palpite > numeroSecreto) {
+            alert(`O número secreto é menor do que o ${palpite}.`);
+        } else {
+            alert(`O número secreto é maior do que o ${palpite}.`);
+            }
+            // tentativas = tentativas + 1
+            tentativas++;
+    }
+ }
