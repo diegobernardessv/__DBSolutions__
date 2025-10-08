@@ -1,5 +1,7 @@
 import random
 
+print("=== Bem vindo ao jogo da forca ===")
+
 stages = ['''
   +---+
   |   |
@@ -53,8 +55,6 @@ stages = ['''
 
 # Invertendo a lista para que o número de vidas corresponda ao índice
 stages.reverse()
-
-print("=== Bem vindo ao jogo da forca ===")
 
 # Escolhe uma palavra aleatória da lista de palavras
 lista_de_palavras = [
