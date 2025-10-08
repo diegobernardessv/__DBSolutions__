@@ -1,19 +1,96 @@
 import random
 
+stages = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
+# Invertendo a lista para que o número de vidas corresponda ao índice
+stages.reverse()
+
 print("=== Bem vindo ao jogo da forca ===")
 
 # Escolhe uma palavra aleatória da lista de palavras
-lista_de_palavras = ["Camelo", "Elefante", "Barco", "Sol", "Mumia", "Francesa", "Deus", "Esfinge"]
+lista_de_palavras = [
+    "abrir", "adeus", "agora", "água", "ajudar", "aluno", "amarelo", "amar", "amanhã", "amigo", "amor",
+    "aqui", "árvore", "atrás", "avó", "avô", "azul", "baixo", "banco", "beber", "bem", "branco", "bonito",
+    "bom", "bom dia", "boa tarde", "boa noite", "café", "cadeira", "cama", "carro", "casa", "cerveja",
+    "certo", "chá", "claro", "começar", "comer", "comida", "como", "comprar", "criança", "cor", "coisa",
+    "dar", "dentro", "desculpe", "dever", "dia", "difícil", "dinheiro", "dizer", "dormir", "enfermeiro",
+    "então", "entre", "errado", "escola", "escrever", "escuro", "esperar", "estar", "estrela", "estudante",
+    "fácil", "falar", "família", "fazer", "fechar", "feio", "feliz", "filho", "flor", "fora", "frente",
+    "frio", "fruta", "gordo", "gostar", "grande", "homem", "hospital", "hoje", "idade", "ir", "irmã",
+    "irmão", "janela", "laranja", "ler", "livro", "loja", "longe", "lua", "lugar", "magro", "mãe", "mão",
+    "marrom", "mau", "médico", "menina", "menino", "mercado", "mesa", "morrer", "mulher", "mundo", "muito",
+    "não", "nome", "novo", "nunca", "odiar", "olá", "olho", "ontem", "ouvir", "pai", "país", "pão", "pequeno",
+    "perto", "pessoa", "pensar", "poder", "por favor", "porta", "pouco", "preto", "prima", "primo",
+    "professor", "quando", "querer", "rápido", "rato", "rinoceronte", "rosa", "roupa", "roxo", "rua",
+    "saber", "sapato", "sempre", "sentir", "ser", "sim", "sobrenome", "sol", "sonhar", "talvez", "tempo",
+    "terminar", "ter", "tia", "tio", "trabalho", "triste", "urso", "vender", "ver", "verde", "vermelho",
+    "velho", "vinho", "vir", "viver", "você",
+    # Animais
+    "Peru", "Pica-pau", "Pinguim", "Pombo", "Porco", "Porco-espinho", "Raposa", "Sabiá", "Sapo", "Serpente",
+    "Siri", "Sucuri", "Suricate", "Tartaruga", "Tatu", "Tigre", "Toupeira", "Touro", "Tucano", "Urubu",
+    "Vaca", "Vaga-lume", "Veado", "Vespa", "Zebra"
+]
 palavra_aleatoria = random.choice(lista_de_palavras).lower() # Converte a palavra para minúsculas 
 
 # Lista para facilitar a atualização de letras em posições específicas.
 display_atual = ["_" for _ in range(len(palavra_aleatoria))]
 print(" ".join(display_atual)) # Imprime o estado inicial da palavra com espaços para melhor leitura
+print(stages[6]) # Mostra a forca vazia no início
 
 game_over = False
 letras_adivinhadas_corretamente = [] # Armazena as letras que o jogador adivinhou corretamente
 letras_tentadas = [] # Armazena todas as letras que o jogador já tentou (para evitar repetições)
 vidas = 6 # Contador de vidas
+
 
 while not game_over:
     # Pede ao jogador para adivinhar uma letra    
@@ -27,7 +104,6 @@ while not game_over:
     # Verifica se a letra já foi tentada
     if chute in letras_tentadas:
         print(f"Você já tentou a letra '{chute}'. Tente outra.")
-        print(" ".join(display_atual)) # Mostra o display atual novamente
         continue
     
     letras_tentadas.append(chute) # Adiciona a letra à lista de letras tentadas
@@ -46,10 +122,12 @@ while not game_over:
     if not acertou_na_rodada:
         vidas -= 1 # Decrementa vidas se errou
         print(f"Você errou! A letra '{chute}' não está na palavra. Vidas restantes: {vidas}")
+        print(stages[vidas]) # Mostra o estágio atual da forca
     else:
         print(f"Boa! A letra '{chute}' está na palavra.")
 
     print(" ".join(display_atual)) # Imprime o estado atualizado da palavra
+
 
     # Condição de vitória
     if "_" not in display_atual:
