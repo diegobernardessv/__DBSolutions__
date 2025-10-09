@@ -1,6 +1,6 @@
 import random
 
-print("=== Bem vindo ao jogo da forca ===")
+print("=== Bem vindo ao jogo da Forca! ===")
 
 stages = ['''
   +---+
@@ -56,7 +56,7 @@ stages = ['''
 # Invertendo a lista para que o número de vidas corresponda ao índice
 stages.reverse()
 
-# Escolhe uma palavra aleatória da lista de palavras
+# Lista de palavras
 lista_de_palavras = [
     "abrir", "adeus", "agora", "água", "ajudar", "aluno", "amarelo", "amar", "amanhã", "amigo", "amor",
     "aqui", "árvore", "atrás", "avó", "avô", "azul", "baixo", "banco", "beber", "bem", "branco", "bonito",
@@ -79,64 +79,77 @@ lista_de_palavras = [
     "Siri", "Sucuri", "Suricate", "Tartaruga", "Tatu", "Tigre", "Toupeira", "Touro", "Tucano", "Urubu",
     "Vaca", "Vaga-lume", "Veado", "Vespa", "Zebra"
 ]
-palavra_aleatoria = random.choice(lista_de_palavras).lower() # Converte a palavra para minúsculas 
 
-# Lista para facilitar a atualização de letras em posições específicas.
-display_atual = ["_" for _ in range(len(palavra_aleatoria))]
-print(" ".join(display_atual)) # Imprime o estado inicial da palavra com espaços para melhor leitura
-print(stages[6]) # Mostra a forca vazia no início
+VIDAS_INICIAIS = 6
 
-game_over = False
-letras_adivinhadas_corretamente = [] # Armazena as letras que o jogador adivinhou corretamente
-letras_tentadas = [] # Armazena todas as letras que o jogador já tentou (para evitar repetições)
-vidas = 6 # Contador de vidas
+# Loop principal para permitir jogar novamente
+while True:
+    # --- Início da Inicialização da Partida ---
+    palavra_aleatoria = random.choice(lista_de_palavras).lower()
+    display_atual = ["_" for _ in range(len(palavra_aleatoria))]
+    vidas = VIDAS_INICIAIS
+    game_over = False
+    letras_tentadas = []
 
+    print(" ".join(display_atual))
+    print(stages[vidas])
+    # --- Fim da Inicialização da Partida ---
 
-while not game_over:
-    # Pede ao jogador para adivinhar uma letra    
-    chute = input("Digite uma letra: ").lower()
-    
-    # Validação básica do input
-    if not chute.isalpha() or len(chute) != 1:
-        print("Por favor, digite apenas uma letra válida.")
-        continue
-    
-    # Verifica se a letra já foi tentada
-    if chute in letras_tentadas:
-        print(f"Você já tentou a letra '{chute}'. Tente outra.")
-        continue
-    
-    letras_tentadas.append(chute) # Adiciona a letra à lista de letras tentadas
+    while not game_over:
+        # Pede ao jogador para adivinhar uma letra    
+        chute = input("Digite uma letra: ").lower()
+        
+        # Validação básica do input
+        if not chute.isalpha() or len(chute) != 1:
+            print("Por favor, digite apenas uma letra válida.")
+            continue
+        
+        # Verifica se a letra já foi tentada
+        if chute in letras_tentadas:
+            print(f"Você já tentou a letra '{chute}'. Tente outra.")
+            continue
+        
+        letras_tentadas.append(chute) # Adiciona a letra à lista de letras tentadas
 
-    acertou_na_rodada = False # Flag para verificar se o chute foi correto nesta rodada
-    
-    # Verifica se a letra está na palavra aleatória e atualiza o display_atual
-    for i, letra_da_palavra in enumerate(palavra_aleatoria):
-        if letra_da_palavra == chute:
-            display_atual[i] = chute # Atualiza a posição no display_atual
-            acertou_na_rodada = True
-            if chute not in letras_adivinhadas_corretamente: # Adiciona a letra à lista de corretas apenas uma vez
-                letras_adivinhadas_corretamente.append(chute)
+        acertou_na_rodada = False # Flag para verificar se o chute foi correto nesta rodada
+        
+        # Verifica se a letra está na palavra aleatória e atualiza o display_atual
+        for i, letra_da_palavra in enumerate(palavra_aleatoria):
+            if letra_da_palavra == chute:
+                display_atual[i] = chute # Atualiza a posição no display_atual
+                acertou_na_rodada = True
 
-    # Imprime a mensagem de erro apenas uma vez se o chute foi incorreto
-    if not acertou_na_rodada:
-        vidas -= 1 # Decrementa vidas se errou
-        print(f"Você errou! A letra '{chute}' não está na palavra. Vidas restantes: {vidas}")
-        print(stages[vidas]) # Mostra o estágio atual da forca
-    else:
-        print(f"Boa! A letra '{chute}' está na palavra.")
+        # Imprime a mensagem de erro apenas uma vez se o chute foi incorreto
+        if not acertou_na_rodada:
+            vidas -= 1 # Decrementa vidas se errou
+            print(f"Você errou! A letra '{chute}' não está na palavra. Vidas restantes: {vidas}")
+            print(stages[vidas]) # Mostra o estágio atual da forca
+        else:
+            print(f"Boa! A letra '{chute}' está na palavra.")
 
-    print(" ".join(display_atual)) # Imprime o estado atualizado da palavra
+        print(" ".join(display_atual)) # Imprime o estado atualizado da palavra
 
+        # Condição de vitória
+        if "_" not in display_atual:
+            game_over = True
+            print("\n🎉 Parabéns, você ganhou! 🎉")
+        
+        # Condição de derrota
+        if vidas == 0:
+            game_over = True
+            print("\n☠️ Game Over! Você ficou sem vidas. ☠️")
+            print(f"A palavra era: {palavra_aleatoria.capitalize()}") # Mostra a palavra correta
 
-    # Condição de vitória
-    if "_" not in display_atual:
-        game_over = True
-        print("Você ganhou!")
-    
-    # Condição de derrota
-    if vidas == 0:
-        game_over = True
-        print("Game Over! Você ficou sem vidas.")
-        print(f"A palavra era: {palavra_aleatoria.capitalize()}") # Mostra a palavra correta
+    # --- Fim da Partida ---
+    # Pergunta ao jogador se ele quer jogar novamente
+    while True:
+        jogar_novamente = input("\nDeseja jogar novamente? (s/n): ").lower()
+        if jogar_novamente in ["s", "sim"]:
+            break # Sai deste loop interno para começar uma nova partida
+        elif jogar_novamente in ["n", "nao", "não"]:
+            print("Obrigado por jogar! Até a próxima.")
+            exit() # Encerra o programa
+        else:
+            print("Opção inválida. Por favor, digite 's' para sim ou 'n' para não.")
+
         
