@@ -1,11 +1,21 @@
+let numeroSecreto = gerarNumeroAleatorio();
+
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
 }
 
 exibirTextoNaTela('h1', 'Jogo do número secreto')
-exibirTextoNaTela('p', 'Escolha um número de 1 a 5000')
+exibirTextoNaTela('p', 'Escolha um número entre 1 e 5000')
 
 function verificarChute() {
-    console.log('O botão foi clicado!')
+    let chute = document.querySelector('input').value;
+    console.log(chute == numeroSecreto);
 }
+
+function gerarNumeroAleatorio() {
+    return parseInt(Math.random() * 5000 + 1);
+}
+
+gerarNumeroAleatorio();
+verificarChute();
