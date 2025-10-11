@@ -1,4 +1,6 @@
-produtos = ['arroz', 'feijão', 'macarrão', 'carne', 'leite', 'ovos', 'batata']
+ranks = ["Ace", "King", "Queen", "Jack"]
+suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
 
-for indice, produto in enumerate(produtos):
-    print(f"{indice + 1}° Produto a ser comprado: {produto}")
+for rank in ranks:
+    for suit in suits:
+        print(f"{rank} of {suit}")
