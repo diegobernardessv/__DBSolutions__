@@ -1,4 +1,4 @@
-let tentativas = 0;
+let tentativas = 1;
 let numeroSecreto = gerarNumeroAleatorio();
 
 function gerarNumeroAleatorio() {
@@ -16,21 +16,19 @@ function verificarChute() {
     if (chute == numeroSecreto) {
         exibirTextoNaTela('h1', 'Acertou!');
         exibirTextoNaTela('p', 'Você descobriu o número secreto!');
-        tentativas++
-        if (tentativas == 1) {
-            exibirTextoNaTela('p', 'Você acertou em 1 tentativa.');
-        } else {
-            exibirTextoNaTela('p', `Você acertou em ${tentativas} tentativas.`);
-        }
+        let palavraTentativas = tentativas > 1 ? 'tentativas' : 'tentativa';
+        let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativas}.`;
+        exibirTextoNaTela('p', mensagemTentativas);
     } else {
         if (chute > numeroSecreto) {
             exibirTextoNaTela('p', 'O número secreto é menor.'); 
             tentativas++;
         } else {
             exibirTextoNaTela('p', 'O número secreto é maior.');
-            tentativas++;
+            
         }
     }
+    tentativas++;
 
 }
 
