@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Pricing Table</title>
+    <style>
+        body {
+            font-family: Comic Sans MS;
+        }
+
+        .pricing_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            gap: 2rem;
+        }
+
+        .pricing_plan {
+            flex: 1;
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgb(211, 207, 207);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .plan_title {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .plan_price {
+            font-weight: bolder;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .plan_features {
+            list-style: none;
+            padding: 010px;
+            margin: 0;
+            background-color: aqua;
+        }
+
+        .plan_button {
+            font-family: Comic Sans MS;
+            font-size: 20px;
+            font-weight: bold;
+            color:blanchedalmond;
+            background-color: rgb(14, 104, 156);
+            border: none;
+            border-radius: 50px;
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+            
+            
+        }
+
+        .plan_button:hover {
+            background-color: rgb(78, 137, 175);
+        }
+
+        @media (max-width: 1250px) {
+            .pricing_container {
+                flex-direction: column;
+                height: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+ <div class="pricing_container">
+    <div class="pricing_plan">
+        <div class="plan_title">Básico</div>
+        <div class="plan_price">R$ 19,99/mês</div>
+        <ul class="plan_features">
+            <li>✅ 10GB de Armazenamento</li>
+            <li>✅ 1 Usuário</li>
+            <li>🚫 Suporte</li>
+        </ul>
+        <button class="plan_button">Assinar</button>
+    </div>
+    <div class="pricing_plan">
+        <div class="plan_title">Intermediário</div>
+        <div class="plan_price">R$ 39,99/mês</div>
+        <ul class="plan_features">
+            <li>✅ 50GB de Armazenamento</li>
+            <li>✅ 5 Usuários</li>
+            <li>✅ Suporte por telefone e e-mail</li>
+        </ul>
+        <button class="plan_button">Assinar</button>
+    </div>
+    <div class="pricing_plan">
+        <div class="plan_title">Premium</div>
+        <div class="plan_price">R$ 59,99/mês</div>
+        <ul class="plan_features">
+            <li>✅ 100GB de Armazenamento</li>
+            <li>✅ 10 Usuários</li>
+            <li>✅ Suporte 24 horas</li>
+        </ul>
+        <button class="plan_button">Assinar</button>
+    </div>
+    
+ </div>   
+</body>
+</html>
