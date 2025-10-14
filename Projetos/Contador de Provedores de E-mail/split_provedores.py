@@ -81,7 +81,7 @@ lista_provedores = [email.split("@")[1] for email in emails]
 # Contar a frequência de cada provedor
 contagem = collections.Counter(lista_provedores)
 
-print("=== Lista com os 5 maiores provedores de e-mail ===")
+print("=== Lista com os 5 provedores de e-mail mais comuns ===")
 
 # Usa enumerate() para criar um índice (ranking) para cada item da lista
 # O método .most_common(argumento) já retorna os mais frequentes, ordenados do maior para o menor
