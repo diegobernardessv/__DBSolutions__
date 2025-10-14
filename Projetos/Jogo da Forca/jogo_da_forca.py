@@ -84,7 +84,7 @@ VIDAS_INICIAIS = 6
 
 # Loop principal para permitir jogar novamente
 while True:
-    # --- Início da Inicialização da Partida ---
+    # --- Inicialização da Partida ---
     palavra_aleatoria = random.choice(lista_de_palavras).lower()
     display_atual = ["_" for _ in range(len(palavra_aleatoria))]
     vidas = VIDAS_INICIAIS
