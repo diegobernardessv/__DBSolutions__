@@ -1,5 +1,6 @@
-def say_hello():
-    name = input('Qual é o seu nome ?')
-    return 'Olá, ' + name
+def media_valores(number1, number2, number3):
+    mediaValores = (number1 + number2 + number3) / 3
+    return mediaValores
 
-say_hello()
+valor = media_valores(10, 9, 6)
+print(valor)

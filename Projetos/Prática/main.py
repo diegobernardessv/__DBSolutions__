@@ -1,10 +1,64 @@
 import random
 
-word_list = ["ilha", "amsterdam", "alemanha", "roma"]
-
 print("=== Bem vindo ao jogo da Forca! ===")
 
+stages = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
+# Invertendo a lista para que o número de vidas corresponda ao índice
+stages.reverse()
+
 VIDAS_INICIAIS = 6
+
+word_list = ["ilha", "amsterdam", "alemanha", "roma"]
 
 while True:
     chosen_word = random.choice(word_list)
@@ -41,6 +95,7 @@ while True:
         if guess not in chosen_word:
             vidas -= 1
             print(f"Você errou! A letra '{guess}' não está na palavra. Vidas restantes: {vidas}")
+            print(stages[vidas])
 
         # Condição de derrota
         if vidas == 0:
